@@ -21,15 +21,22 @@ export class StudentService {
 
     }
 
-    getStudent(){
+    async getStudentById(studentId:string): Promise<Istudent>{
+        const student= await this.studentModel.findById(studentId);
+        return student;
 
     }
 
-    updateStudent(){
+    async updateStudent(studentId:string, CreateStudentDTO:CreateStudentDTO): Promise<Istudent>{
+        const updatedStudent= await this.studentModel.findByIdAndUpdate(studentId,CreateStudentDTO,{new:true});
+        return updatedStudent;
+
 
     }
 
-    deleteStudent(){
+    async deleteStudent(studentId:string): Promise<Istudent>{
+        const deletedStudent=this.studentModel.findByIdAndDelete(studentId);
+        return deletedStudent;
 
     }
 
