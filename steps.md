@@ -186,3 +186,31 @@ Nota: productModel representa un modelo o elemento de la base de datos, por lo t
 - Crear la consulta de eliminar
 
 17. Usar los servicios creados en el crontrolador
+
+## Cambio a MySQL en lugar de Mongoose desde línea 4
+
+4b- Intalación de TypeORM y MySQL
+
+bash```
+npm install --save @nestjs/typeorm typeorm mysql2
+
+```
+
+4. Instalar TypeOrnModule
+
+bash```
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+- Dentro de "Imports" []
+TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'test_mysql',
+      entities: [],
+      synchronize: true,
+    }),
+
+```
